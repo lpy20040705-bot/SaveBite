@@ -47,7 +47,6 @@
                 android:textColor="#6B7280"/>
         </LinearLayout>
 
-        <!-- 勾选框 -->
         <CheckBox
             android:id="@+id/cbConsumed"
             android:layout_width="wrap_content"
