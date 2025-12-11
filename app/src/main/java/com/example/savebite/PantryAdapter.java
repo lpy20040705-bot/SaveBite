@@ -22,7 +22,7 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
 
     public interface OnItemClickListener {
         void onDeleteClick(int id);
-        void onStatusChange(); // 通知外部刷新
+        void onStatusChange(); 
     }
 
     public PantryAdapter(Context context, List<PantryItem> items, OnItemClickListener listener) {
@@ -48,14 +48,14 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
         String status = item.getStatus();
         holder.details.setText(status.toUpperCase() + " • " + item.getExpiryDate());
 
-        // 设置颜色
+        
         int colorRes;
         if (status.equals("consumed")) {
-            colorRes = R.color.accent_green; // 已消耗用蓝色/绿色
-            holder.name.setPaintFlags(holder.name.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG); // 加删除线
+            colorRes = R.color.accent_green; 
+            holder.name.setPaintFlags(holder.name.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG); 
             holder.name.setTextColor(Color.GRAY);
         } else {
-            holder.name.setPaintFlags(holder.name.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG)); // 取消删除线
+            holder.name.setPaintFlags(holder.name.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG)); 
             holder.name.setTextColor(ContextCompat.getColor(context, R.color.black));
 
             if (status.equals("expired")) colorRes = R.color.status_expired;
@@ -64,20 +64,20 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
         }
         holder.statusIndicator.setBackgroundColor(ContextCompat.getColor(context, colorRes));
 
-        // 设置 CheckBox 状态 (防止 RecyclerView 复用导致错乱)
+        
         holder.cbConsumed.setOnCheckedChangeListener(null);
         holder.cbConsumed.setChecked(item.getIsConsumed() == 1);
 
-        // 监听勾选事件
+        
         holder.cbConsumed.setOnCheckedChangeListener((buttonView, isChecked) -> {
             int newStatus = isChecked ? 1 : 0;
             item.setIsConsumed(newStatus);
-            db.updateItemStatus(item.getId(), newStatus); // 更新数据库
+            db.updateItemStatus(item.getId(), newStatus); 
 
-            // 刷新当前 Item 样式
+            
             notifyItemChanged(holder.getAdapterPosition());
 
-            // 通知 Dashboard 刷新数据
+            
             if (listener != null) listener.onStatusChange();
         });
 
