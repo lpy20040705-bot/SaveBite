@@ -47,8 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    // ✅ 修复点：添加了 getAvailableItems 方法
-    // 这个方法只查询 is_consumed = 0 (未消耗) 的食材
     public List<PantryItem> getAvailableItems() {
         List<PantryItem> list = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
