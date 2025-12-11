@@ -35,9 +35,6 @@ public class PantryFragment extends Fragment {
 
             @Override
             public void onStatusChange() {
-                // 状态改变时（比如勾选Consumed），不需要重载整个列表，
-                // 因为 Adapter 内部已经处理了 notifyItemChanged。
-                // 如果需要和其他 Fragment 联动，通常在 onResume 里刷新数据即可。
             }
         });
         recyclerView.setAdapter(adapter);
@@ -46,6 +43,6 @@ public class PantryFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        loadData(); // 每次回来都刷新
+        loadData(); 
     }
 }
