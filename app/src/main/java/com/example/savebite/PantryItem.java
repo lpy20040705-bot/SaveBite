@@ -12,9 +12,7 @@ public class PantryItem {
     private String category;
     private String quantity;
     private String expiryDate;
-    private int isConsumed; // 新增：0 = 未消耗, 1 = 已消耗
-
-    // 更新构造函数
+    private int isConsumed; 
     public PantryItem(int id, String name, String category, String quantity, String expiryDate, int isConsumed) {
         this.id = id;
         this.name = name;
@@ -30,16 +28,16 @@ public class PantryItem {
     public String getQuantity() { return quantity; }
     public String getExpiryDate() { return expiryDate; }
 
-    // 新增 Getter/Setter
+    
     public int getIsConsumed() { return isConsumed; }
     public void setIsConsumed(int isConsumed) { this.isConsumed = isConsumed; }
 
     public String getStatus() {
-        if (isConsumed == 1) return "consumed"; // 如果已消耗，直接返回状态
+        if (isConsumed == 1) return "consumed"; 
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()); // 注意日期格式要匹配输入
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()); 
         try {
-            // 尝试解析 dd/MM/yyyy 或 yyyy-MM-dd (兼容旧数据)
+            
             Date expiry;
             if (this.expiryDate.contains("/")) {
                 expiry = sdf.parse(this.expiryDate);
