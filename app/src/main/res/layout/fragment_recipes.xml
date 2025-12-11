@@ -5,7 +5,6 @@
     android:background="@color/bg_gray"
     android:padding="20dp">
 
-    <!-- 顶部标题区域 -->
     <LinearLayout
         android:id="@+id/headerContainer"
         android:layout_width="match_parent"
@@ -31,8 +30,6 @@
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 
-    <!-- 食谱列表 (RecyclerView) -->
-    <!-- 加上 layout_above 确保列表不遮挡底部按钮 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRecipes"
         android:layout_width="match_parent"
@@ -42,7 +39,6 @@
         android:layout_marginBottom="20dp"
         android:clipToPadding="false"/>
 
-    <!-- 加载中提示 -->
     <TextView
         android:id="@+id/tvLoading"
         android:layout_width="wrap_content"
@@ -52,7 +48,6 @@
         android:textColor="@color/gray_text"
         android:visibility="gone"/>
 
-    <!-- 底部按钮 -->
     <Button
         android:id="@+id/btnGenerate"
         android:layout_width="match_parent"
