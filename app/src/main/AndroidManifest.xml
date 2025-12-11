@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 核心修改：确保有网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Savebite"
+        tools:targetApi="31">
+
+        <!-- 1. 注册登录页面 (设为启动页 LAUNCHER) -->
+        <!-- App 打开时会先进入这里 -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. 注册注册页面 -->
+        <activity
+            android:name=".SignupActivity"
+            android:exported="false" />
+
+        <!-- 3. 修改主页面 (去掉原来的启动属性) -->
+        <!-- 现在只有登录成功后才会跳转到这里 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+    </application>
+
+</manifest>
