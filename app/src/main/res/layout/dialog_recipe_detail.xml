@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:background="@color/bg_gray">
 
-    <!-- 顶部导航栏 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +43,6 @@
             android:orientation="vertical"
             android:paddingBottom="40dp">
 
-            <!-- 难度标签 -->
             <TextView
                 android:id="@+id/tvDetailDifficulty"
                 android:layout_width="wrap_content"
@@ -58,7 +56,6 @@
                 android:paddingVertical="6dp"
                 android:layout_marginBottom="12dp"/>
 
-            <!-- 标题 -->
             <TextView
                 android:id="@+id/tvDetailTitle"
                 android:layout_width="wrap_content"
@@ -69,7 +66,6 @@
                 android:textColor="@color/dark_text"
                 android:layout_marginBottom="16dp"/>
 
-            <!-- 信息栏 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +89,6 @@
                     android:textStyle="bold"/>
             </LinearLayout>
 
-            <!-- 食材卡片 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -142,7 +137,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 做法步骤 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
