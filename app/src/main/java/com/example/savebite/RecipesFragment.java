@@ -44,7 +44,7 @@ public class RecipesFragment extends Fragment {
     }
 
     private void generateRecipes() {
-        // 核心修改：调用 getAvailableItems() 来获取未消耗的食材
+
         List<PantryItem> items = db.getAvailableItems();
 
         if (items.isEmpty()) {
@@ -62,7 +62,7 @@ public class RecipesFragment extends Fragment {
         btnGenerate.setEnabled(false);
         btnGenerate.setText("Thinking...");
 
-        // 假设 GeminiHelper 和 Recipe/PantryItem Model 已在项目中定义
+        
         GeminiHelper.generateRecipe(ingredients.toString(), new GeminiHelper.GeminiCallback() {
             @Override
             public void onSuccess(String jsonResult) {
