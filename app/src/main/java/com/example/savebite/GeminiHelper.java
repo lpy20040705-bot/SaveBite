@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class GeminiHelper {
-    private static final String API_KEY = "AIzaSyDk4i3l-q32Z5vLovYObKKTzLhkW2H1mSY";
+    private static final String API_KEY = "Change it to your Gemini API";
 
     private static final String URL = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" + API_KEY;
 
